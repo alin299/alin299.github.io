@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>hadoop安装 | alin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hadoop 安装java环境 解压 1tar -xzvf jdk8_xxxxx.tar.gz  修改 /etc/profile 文件 在文件最后添加 12export JAVA_HOME=/home/lzl/modules/javaexport PATH=$PATH:$JAVA_HOME/bin  刷新配置 1source /etc/profile  1java -version 出现    j">
+  <meta name="description" content="Hadoop 安装java环境 解压 1tar -xzvf jdk8_xxxxx.tar.gz  修改 /etc/profile 文件 在文件最后添加 12export JAVA_HOME=/home/lzl/modules/javaexport PATH=$PATH:$JAVA_HOME/bin  刷新配置 1source /etc/profil 1java -version 出现    jav">
 <meta name="keywords" content="hadoop">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hadoop安装">
 <meta property="og:url" content="http://yoursite.com/2019/04/14/hadoop安装/index.html">
 <meta property="og:site_name" content="alin">
-<meta property="og:description" content="Hadoop 安装java环境 解压 1tar -xzvf jdk8_xxxxx.tar.gz  修改 /etc/profile 文件 在文件最后添加 12export JAVA_HOME=/home/lzl/modules/javaexport PATH=$PATH:$JAVA_HOME/bin  刷新配置 1source /etc/profile  1java -version 出现    j">
+<meta property="og:description" content="Hadoop 安装java环境 解压 1tar -xzvf jdk8_xxxxx.tar.gz  修改 /etc/profile 文件 在文件最后添加 12export JAVA_HOME=/home/lzl/modules/javaexport PATH=$PATH:$JAVA_HOME/bin  刷新配置 1source /etc/profil 1java -version 出现    jav">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/04/14/hadoop安装/jps.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/14/hadoop安装/1.png">
-<meta property="og:updated_time" content="2019-04-14T07:46:05.894Z">
+<meta property="og:updated_time" content="2019-04-14T08:07:31.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop安装">
-<meta name="twitter:description" content="Hadoop 安装java环境 解压 1tar -xzvf jdk8_xxxxx.tar.gz  修改 /etc/profile 文件 在文件最后添加 12export JAVA_HOME=/home/lzl/modules/javaexport PATH=$PATH:$JAVA_HOME/bin  刷新配置 1source /etc/profile  1java -version 出现    j">
+<meta name="twitter:description" content="Hadoop 安装java环境 解压 1tar -xzvf jdk8_xxxxx.tar.gz  修改 /etc/profile 文件 在文件最后添加 12export JAVA_HOME=/home/lzl/modules/javaexport PATH=$PATH:$JAVA_HOME/bin  刷新配置 1source /etc/profil 1java -version 出现    jav">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/14/hadoop安装/jps.png">
   
     <link rel="alternative" href="/atom.xml" title="alin" type="application/atom+xml">
@@ -188,9 +188,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/home/lzl/modules/java</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>刷新配置</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profil</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
 <p>出现    <u>java version “1.8.xxx”</u>则成功</p>
 </li>
 </ul>
@@ -201,10 +200,9 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf jdk8_xxxxx.tar.gz</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>修改 etc/hadoop/hadoop-env.sh</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=你的jdk安装位置</span><br></pre></td></tr></table></figure>
-</li>
+<li>修改 etc/hadoop/hadoop-env.sh</li>
 </ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=你的jdk安装位置</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置</p>
 <ul>
@@ -216,25 +214,25 @@
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 设置hdfs副本数量 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>格式化hadoop</p>
+<li>格式化hadoop</li>
+</ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs namenode -format</span><br></pre></td></tr></table></figure>
-</li>
-<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动所有</span></span><br><span class="line">sbin/start-all.sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看进程</span></span><br><span class="line">jps</span><br></pre></td></tr></table></figure>
-<p><strong>启动完成</strong><br><img src="/2019/04/14/hadoop安装/jps.png" alt="jps"></p>
-</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动所有</span></span><br><span class="line">sbin/start-all.sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看进程</span></span><br><span class="line">jps</span><br></pre></td></tr></table></figure>
+<p>  <strong>启动完成</strong><br>  <img src="/2019/04/14/hadoop安装/jps.png" alt="jps"></p>
+<ul>
 <li><p>远程访问</p>
 <p>打开浏览器,访问 虚拟机ip:50070 ，发现无法访问</p>
 <p>大概防火墙没关</p>
+</li>
+</ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables stop</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/04/14/hadoop安装/1.png" alt="界面"></p>
-<p>bing！简单粗暴，由于安全性问题，我还是建议按需开放端口，不推荐直接做掉防火墙。</p>
+<p>  <img src="/2019/04/14/hadoop安装/1.png" alt="界面"></p>
+<p>  bing！简单粗暴，由于安全性问题，我还是建议按需开放端口，不推荐直接做掉防火墙。</p>
 <hr>
-<p>ps.  上课好累，讲了两天都没进入正轨。啊aaaa! 我的双休。 直接就放五一了??</p>
-<p><del>上课</del></p>
+<p>  ps.  上课好累，讲了两天都没进入正轨。啊aaaa! 我的双休。 直接就放五一了??</p>
+<p>  <del>上课</del></p>
 <ul>
 <li style="list-style: none"><input type="checkbox" checked> <strong>睡觉</strong></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
