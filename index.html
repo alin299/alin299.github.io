@@ -152,6 +152,126 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hadoop安装（二）" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/20/hadoop安装（二）/">hadoop安装（二）</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/20/hadoop安装（二）/" class="archive-article-date">
+  	<time datetime="2019-04-20T05:08:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="hadoop安装（二）"><a href="#hadoop安装（二）" class="headerlink" title="hadoop安装（二）"></a>hadoop安装（二）</h3><h4 id="配置yarn"><a href="#配置yarn" class="headerlink" title="配置yarn"></a>配置yarn</h4><blockquote>
+<p>配置mapred-site.xml，在etc/hadoop/ 只有mapred-site.xml.example<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp ./etc/hadoop/mapred-site.xml.example ./etc/hadoop/mapred-site.xml</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>对该文件进行修改</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>修改etc/hadoop/yarn-site.xml 文件</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--选择为mapreduce的混洗算法--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- yarn.resourcemanager.hostname 默认值是0.0.0.0， 自己修改吧--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>alin<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>启动, 略略略</p>
+</blockquote>
+<p><img src="/2019/04/20/hadoop安装（二）/4.png" alt="jps"></p>
+<blockquote>
+<p>浏览器打开 虚拟机IP:8088,可以看到界面</p>
+</blockquote>
+<p><img src="/2019/04/20/hadoop安装（二）/5.png" alt="8088"></p>
+<blockquote>
+<p>打不开的可能是防火墙原因，或者yarn.resourcemanager.hostname指向了localhost</p>
+<p>用netstat 命令看到 开的是127.0.0.1:8088， 难怪死活打不开,  踩坑…</p>
+</blockquote>
+<h4 id="上传文件到hdfs"><a href="#上传文件到hdfs" class="headerlink" title="上传文件到hdfs"></a>上传文件到hdfs</h4><h5 id="在hdfs中新建文件夹"><a href="#在hdfs中新建文件夹" class="headerlink" title="在hdfs中新建文件夹"></a>在hdfs中新建文件夹</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs dfs -mkdir /bigdata</span><br></pre></td></tr></table></figure>
+<h5 id="新建两个文件"><a href="#新建两个文件" class="headerlink" title="新建两个文件"></a>新建两个文件</h5><blockquote>
+<p>分别写入了三个hello 四个 world</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir input</span><br><span class="line">cd input</span><br><span class="line"><span class="meta">#</span><span class="bash"> 新建文件</span></span><br><span class="line">touch alinaaa</span><br><span class="line">touch alinbbb</span><br></pre></td></tr></table></figure>
+<h5 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h5><blockquote>
+<p>将input文件夹中的alinaaa, alinbbb上传到  hdfs的 /bigdata下</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs dfs -put .input/* /bigdata</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/04/20/hadoop安装（二）/1.png" alt="上传完成"></p>
+<p>用自带的jar包调用 wordcount，对刚上传的文件进行单词统计</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/yarn jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar wordcount /bigdata /wordcount</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/04/20/hadoop安装（二）/2.png" alt="结果文件"></p>
+<blockquote>
+<p>用cat命令查看一下结果</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs dfs -cat /wordcount/part-r-00000</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/04/20/hadoop安装（二）/3.png" alt="统计结果"></p>
+<hr>
+<ul>
+<li><p>[x] over!</p>
+<p><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=302778153,823698028&amp;fm=26&amp;gp=0.jpg" alt="加油"></p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/20/hadoop安装（二）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hadoop安装" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -549,15 +669,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">体验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
             
             <div class="clearfix"></div>
