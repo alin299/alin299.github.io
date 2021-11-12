@@ -214,31 +214,31 @@
 <h5 id="克隆虚拟机"><a href="#克隆虚拟机" class="headerlink" title="克隆虚拟机"></a>克隆虚拟机</h5><blockquote>
 <p>因为要搭建分布式的，所以先克隆三台虚拟机</p>
 </blockquote>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C5.png" alt="克隆"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/5.png" alt="克隆"></p>
 <blockquote>
 <p>生成一个 mac 地址</p>
 </blockquote>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C1.png" alt="修改mac"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/1.png" alt="修改mac"></p>
 <blockquote>
 <p>eth0是被克隆的，eth1是刚生成的， 删除 eht0，并将 eth1 改为 eth 0</p>
 </blockquote>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C2.png" alt="修改mac"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/2.png" alt="修改mac"></p>
 <blockquote>
 <p>修改 ip 和 mac,  /etc/sysconfig/network-scripts/if-eth0</p>
 </blockquote>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C3.png" alt="修改mac"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/3.png" alt="修改mac"></p>
 <blockquote>
 <p>修改 /etc/hosts</p>
 </blockquote>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C4.png" alt="修改hosts"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/4.png" alt="修改hosts"></p>
 <blockquote>
 <p>修改hostname,  /etc/sysconfig/network</p>
 </blockquote>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C6.png" alt="修改hostname"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/6.png" alt="修改hostname"></p>
 <blockquote>
 <p>一起启动</p>
 </blockquote>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C7.png" alt="启动"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/7.png" alt="启动"></p>
 <blockquote>
 <p>修改hdfs-site.xml, 配置SecondaryNamNode所在的服务器</p>
 </blockquote>
@@ -297,26 +297,26 @@
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/yarn-daemon.sh start resourcemanager</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C8.png" alt="8"></p>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C9.png" alt="9"></p>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C10.png" alt="10"></p>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C11.png" alt="11"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/8.png" alt="8"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/9.png" alt="9"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/10.png" alt="10"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/11.png" alt="11"></p>
 <blockquote>
 <p>上传文件可以看到有 3 个备份</p>
 </blockquote>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C12.png" alt="12"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/12.png" alt="12"></p>
 <blockquote>
 <p>用wordcount 计数</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/yarn jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar wordcount /bigdata/input_test /bigdata/wordcount</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C13.png" alt="13"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/13.png" alt="13"></p>
 <blockquote>
 <p>用 cat 命令看一下结果</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs dfs -cat ./input_test /bigdata/wordcount/part-r-00000</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89%5C14.png" alt="14"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%B8%89%EF%BC%89/14.png" alt="14"></p>
 <hr>
 
       
@@ -409,11 +409,11 @@
 <blockquote>
 <p>启动, 略略略</p>
 </blockquote>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89%5C4.png" alt="jps"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89/4.png" alt="jps"></p>
 <blockquote>
 <p>浏览器打开 虚拟机IP:8088,可以看到界面</p>
 </blockquote>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89%5C5.png" alt="8088"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89/5.png" alt="8088"></p>
 <blockquote>
 <p>打不开的可能是防火墙原因，或者yarn.resourcemanager.hostname指向了localhost</p>
 <p>用netstat 命令看到 开的是127.0.0.1:8088， 难怪死活打不开,  踩坑…</p>
@@ -430,17 +430,17 @@
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs dfs -put .input/* /bigdata</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89%5C1.png" alt="上传完成"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89/1.png" alt="上传完成"></p>
 <p>用自带的jar包调用 wordcount，对刚上传的文件进行单词统计</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/yarn jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar wordcount /bigdata /wordcount</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89%5C2.png" alt="结果文件"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89/2.png" alt="结果文件"></p>
 <blockquote>
 <p>用cat命令查看一下结果</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs dfs -cat /wordcount/part-r-00000</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89%5C3.png" alt="统计结果"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85%EF%BC%88%E4%BA%8C%EF%BC%89/3.png" alt="统计结果"></p>
 <hr>
 <ul>
 <li><input checked disabled type="checkbox"> <p>over!</p>
@@ -591,7 +591,7 @@
 <blockquote>
 <p>  <strong>启动完成</strong></p>
 </blockquote>
-<p>  <img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85/hadoop%E5%AE%89%E8%A3%85%5Cjps.png" alt="1"></p>
+<p>  <img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85/jps.png" alt="1"></p>
 <ul>
 <li><p>远程访问</p>
 <blockquote>
@@ -603,7 +603,7 @@
 <blockquote>
 <p>  service iptables stop</p>
 </blockquote>
-<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85/hadoop%E5%AE%89%E8%A3%85%5C1.png" alt="1"></p>
+<p><img src="/2019/04/20/hadoop%E5%AE%89%E8%A3%85/1.png" alt="1"></p>
 <blockquote>
 <p>  bing！简单粗暴，由于安全性问题，我还是建议按需开放端口，不推荐直接做掉防火墙。</p>
 </blockquote>
@@ -706,7 +706,7 @@
 
 <p>安装完成后，查看一下版本</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/11/30/docker%E5%88%9D%E4%BD%93%E9%AA%8C/docker%E5%88%9D%E4%BD%93%E9%AA%8C%5C1.png" alt="docker版本"></p>
+<p><img src="/2018/11/30/docker%E5%88%9D%E4%BD%93%E9%AA%8C/1.png" alt="docker版本"></p>
 <blockquote>
 <p>Docker 需要用户具有 sudo 权限，为了避免每次命令都输入<code>sudo</code>，可以把用户加入 Docker 用户组</p>
 </blockquote>
@@ -727,13 +727,13 @@
 <p>抓取后列出本地镜像</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2018/11/30/docker%E5%88%9D%E4%BD%93%E9%AA%8C/docker%E5%88%9D%E4%BD%93%E9%AA%8C%5C2.png" alt="本地已有镜像"></p>
+<p><img src="/2018/11/30/docker%E5%88%9D%E4%BD%93%E9%AA%8C/2.png" alt="本地已有镜像"></p>
 <p>如图，本地已有了hello-world的镜像了</p>
 <p>运行该镜像,加了container则如果本地没有指定镜像，就会从从库抓取</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] run hello-world</span><br></pre></td></tr></table></figure>
 
 <p>运行成功后则会显示</p>
-<p><img src="/2018/11/30/docker%E5%88%9D%E4%BD%93%E9%AA%8C/docker%E5%88%9D%E4%BD%93%E9%AA%8C%5C3.png" alt="运行hello-world镜像成功"></p>
+<p><img src="/2018/11/30/docker%E5%88%9D%E4%BD%93%E9%AA%8C/3.png" alt="运行hello-world镜像成功"></p>
 <p>停止运行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 容器ID</span><br></pre></td></tr></table></figure>
 
@@ -951,15 +951,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">体验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
             
             <div class="clearfix"></div>
